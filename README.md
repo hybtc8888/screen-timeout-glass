@@ -56,7 +56,7 @@ npm run dist
 The build output is:
 
 ```text
-release/熄屏快捷框-1.2.7-Windows-x64-便携版.exe
+release/Screen-Timeout-Glass-1.2.7-Windows-x64-Portable.exe
 ```
 
 `npm run dist` is deliberately locked to a Windows portable x64 build.
