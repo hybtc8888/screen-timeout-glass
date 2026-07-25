@@ -1,0 +1,14 @@
+node_modules/
+dist/
+release/
+artifacts/
+assets/app-icon-generated.png
+*.log
+.vite/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+.DS_Store
+Thumbs.db

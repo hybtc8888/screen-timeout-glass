@@ -1,0 +1,185 @@
+:root {
+  font-family: Bahnschrift, "Microsoft YaHei UI", sans-serif;
+  color: rgba(255, 255, 255, 0.96);
+  background: transparent;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+.widget-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  app-region: drag;
+  -webkit-app-region: drag;
+}
+
+.widget-shell:active {
+  cursor: grabbing;
+}
+
+.glass-strip {
+  width: 240px;
+  height: 62px;
+}
+
+.glass-strip > .glass {
+  width: 100%;
+  height: 62px;
+  background: rgba(10, 17, 23, 0.28);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.22) !important;
+}
+
+.glass-strip > .glass > div:last-child {
+  width: 100%;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  gap: 7px;
+  width: 224px;
+  height: 46px;
+}
+
+.choice {
+  position: relative;
+  width: 70px;
+  height: 46px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  app-region: no-drag;
+  -webkit-app-region: no-drag;
+  transition: filter 150ms ease;
+}
+
+.choice:hover:not(:disabled):not(.is-selected) {
+  filter: brightness(1.12);
+}
+
+.choice:active:not(:disabled) {
+  filter: saturate(1.08) brightness(0.96);
+}
+
+.choice.is-selected {
+  filter: brightness(1.18);
+}
+
+.choice:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.72);
+}
+
+.choice:disabled {
+  opacity: 0.62;
+}
+
+.choice-glass {
+  width: 70px;
+  height: 46px;
+}
+
+.choice-glass > .glass {
+  width: 70px;
+  height: 46px;
+  justify-content: center;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(117, 145, 154, 0.045)
+  );
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.48),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.1),
+    0 5px 11px rgba(0, 0, 0, 0.36) !important;
+  transition: box-shadow 150ms ease, background 150ms ease !important;
+}
+
+.choice-glass > .glass > div:last-child {
+  width: 100%;
+}
+
+.choice-glass > div,
+.choice-glass > span {
+  pointer-events: none;
+}
+
+.choice-value {
+  display: block;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.44);
+  transition: color 150ms ease, transform 150ms ease, text-shadow 150ms ease;
+}
+
+.choice.is-selected .choice-glass > .glass {
+  background: radial-gradient(
+    circle at 50% 48%,
+    rgba(246, 249, 250, 0.44) 0%,
+    rgba(190, 198, 202, 0.24) 52%,
+    rgba(78, 88, 93, 0.11) 100%
+  );
+  box-shadow:
+    inset 0 4px 9px rgba(22, 29, 32, 0.54),
+    inset 0 -2px 5px rgba(255, 255, 255, 0.34),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+}
+
+.choice.is-selected .choice-value {
+  color: rgba(24, 31, 34, 0.9);
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
